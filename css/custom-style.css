@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.column {
+    width: 48%;
+    float: left;
+    margin: 1%;
+}
+
+.card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.card a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.card i {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+/* Add more styles as needed */
