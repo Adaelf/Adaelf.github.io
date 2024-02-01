@@ -204,535 +204,8 @@
         
 
 <div class="post">
-    <a href="/2022/07/23/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-        <h2 class="post-title">虚拟机——VMware下安装Ubuntu</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                虚拟机
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/7/23
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h1 id="ubuntu-下载地址："><a href="#ubuntu-下载地址：" class="headerlink" title="ubuntu 下载地址："></a>ubuntu 下载地址：</h1><blockquote>
-<ol>
-<li>官方下载地址：<a target="_blank" rel="noopener" href="https://www.ubuntu.com/download">https://www.ubuntu.com/download</a></li>
-</ol>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>阿里云开源镜像站：<br><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/">http://mirrors.aliyun.com/ubuntu-releases/</a></li>
-</ol>
-</blockquote>
-<h1 id="桌面版本和服务器版本之间的区别："><a href="#桌面版本和服务器版本之间的区别：" class="headerlink" title="桌面版本和服务器版本之间的区别："></a>桌面版本和服务器版本之间的区别：</h1><p>桌面版预装了 GUI 图像操作界面，而服务器版没有<br>桌面版已经安装了许多服务器版没有的软件，如办公软件、媒体播放软件、浏览器等等<br>桌面版缺少 Apache、MySQL 和 PHP，而这些在服务器版中是标准配置<br>桌面版更适合个人电脑安装使用，而服务器版适用于部署web服务器使用，个人练习的话，推荐桌面版。当然通过安装和卸载软件包，你也可以将桌面版定制为服务器版，反之亦然。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_28340727/article/details/121384457">https://blog.csdn.net/baidu_28340727&#x2F;article&#x2F;details&#x2F;121384457</a></p>
-<h1 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h1><p>进入官网下载：<a target="_blank" rel="noopener" href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html</a></p>
-<blockquote>
-<p>首先在这里说明一下：win11系统在下载VMware16及以下可能会存在兼容性问题，导致出现电脑蓝屏的情况</p>
-</blockquote>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/20240125173501.png"></p>
-<blockquote>
-<p>通过搜索发现最好是16版本以上的安装在win11上没有错误</p>
-</blockquote>
-<ol>
-<li>下载完成VMware16.2.4最新版本安装包以后，鼠标右键，【以管理员身份运行】：</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737490.png"></p>
-<ol start="2">
-<li>点击【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737751.png"></p>
-<ol start="3">
-<li>选择【我接受许可协议中的条款】→【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737218.png"></p>
-<ol start="4">
-<li>点击【更改…】修改软件安装目录（如果你觉得你的C盘足够大，也可以默认，但还是建议安装在除C盘之外的其他盘）</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251738462.png"></p>
-<p>下一步】</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251738898.png"></p>
-<ol start="5">
-<li>取消勾选【启动时检查产品更新】和【假如VMware客户体验提升计划 】→【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251904472.png"></p>
-<ol start="6">
-<li>点击【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251904107.png"></p>
-<ol start="7">
-<li>点击【安装】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740115.png"></p>
-<ol start="8">
-<li>点击【许可证】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740800.png"></p>
-<ol start="9">
-<li>在百度上找到许可证，复制粘贴，点击【输入】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740962.png"></p>
-<ol start="10">
-<li>点击【完成】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251741171.png"></p>
-<h1 id="在VMware下安装Ubuntu"><a href="#在VMware下安装Ubuntu" class="headerlink" title="在VMware下安装Ubuntu"></a>在VMware下安装Ubuntu</h1><p>我要装的Ubuntu的版本为18.04版本，大家也可以根据自己的喜好选择安装最新版本或其他版本。</p>
-<p>由于官网是在是太慢了，我们可以进入阿里云开源镜像站：<br><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/">http://mirrors.aliyun.com/ubuntu-releases/</a></p>
-<p>或者清华开源镜像网站：</p>
-<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn</a></p>
-<ol>
-<li>找到想要的版本，进行下载：</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251743753.png"></p>
-<ol start="2">
-<li>选择桌面镜像，点击进行下载</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744935.png"></p>
-<ol start="3">
-<li>下载完成后，我们就可以双击打开刚刚安装完成的VMware</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744564.png"></p>
-<ol start="4">
-<li>点击【创建新的虚拟机】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744870.png"></p>
-<ol start="5">
-<li>对配置类型进行选择，在这里我选的是【典型】→【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251745297.png"></p>
-<ol start="6">
-<li>选择【稍后安装操作系统】→【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251745555.png"></p>
-<ol start="7">
-<li>选择【Linux】→【Ubuntu64位】→【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251746534.png"></p>
-<ol start="8">
-<li>默认虚拟机名称，选择【浏览】更改系统的安装位置，还是建议安装在C盘以外的其他盘，选择【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251746442.png"></p>
-<ol start="9">
-<li>选择【下一步】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747596.png"></p>
-<ol start="10">
-<li>选择【自定义文件】</li>
-<li>选择【内存】→【此虚拟机的内存】，设置为2048MB</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747946.png"></p>
-<ol start="12">
-<li>选择【新CD&#x2F;DVD（SATA）】→【使用ISO镜像文件】→【浏览】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747712.png"></p>
-<ol start="13">
-<li>找到刚才下载好的Ubuntu镜像文件，点击镜像文件，选择【打开】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747997.png"></p>
-<ol start="14">
-<li>选择【网络适配器】→【仅主机模式】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748203.png"></p>
-<ol start="15">
-<li>选择【USB控制器】→【移除】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748145.png"></p>
-<ol start="16">
-<li>选择【打印机】→【移除】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748898.png"></p>
-<ol start="17">
-<li>选择【关闭】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749765.png"></p>
-<ol start="18">
-<li>选择【完成】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749133.png"></p>
-<ol start="19">
-<li>此时可以看到我的计算机里面存在【Ubuntu64位】，选择【Ubuntu64位】→【开启此虚拟机】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749859.png"></p>
-<ol start="20">
-<li>语言设置因人而异，你可以选择【中文（简体）】，在这里我选择的是【English】→【Install Ubuntu】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749567.png"></p>
-<ol start="21">
-<li>选择【Continue】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750147.png"></p>
-<ol start="22">
-<li>选择【Normal installation】，因人而异，你也可以选择最小安装或其他</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750593.png"></p>
-<ol start="23">
-<li>选择【Install Now】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750342.png"></p>
-<ol start="24">
-<li>这时候会出现一个弹窗，选择【Continue】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750354.png"></p>
-<ol start="25">
-<li>点击地图上上海的位置，选择【Continue】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751674.png"></p>
-<ol start="26">
-<li>创建用户账号密码，选择【Continue】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751855.png"></p>
-<ol start="27">
-<li>系统 正在安装中，可以耐心等待一会儿</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751090.png"></p>
-<ol start="28">
-<li>安装完成，点击【Restart Now】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752708.png"></p>
-<ol start="29">
-<li>重启后不需要进行任何操作，重启完成。点击用户名</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752930.png"></p>
-<ol start="30">
-<li>输入密码，选择【Sign in】</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752185.png"></p>
-<ol start="31">
-<li>进入Ubuntu界面，Ubuntu系统安装完成。</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752618.png"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="color: #00a596">虚拟机</a>
-        </span>
-        
-    </div>
-    <a href="/2022/07/23/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/07/11/win11%EF%BC%89/">
-        <h2 class="post-title">Ubuntu之双系统（win10/win11）</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F-Ubuntu/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                重装系统/Ubuntu
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/7/11
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <p>首先可以下载一个rufus：创建启动盘</p>
-<p>Rufus是一个可以帮助格式化和创建可引导USB闪存盘的工具，</p>
-<p>比如 USB 随身碟，记忆棒等等。</p>
-<p>在如下场景中会非常有用：</p>
-<ul>
-<li>你需要把一些可引导的ISO格式的镜像（Windows，Linux，UEFI等）创建成USB安装盘的时候</li>
-<li>你需要使用一个还没有安装操作系统的设备的时候</li>
-<li>你需要从DOS系统刷写BIOS或者其他固件的时候</li>
-<li>你需要运行一个非常底层的工具的时候</li>
-</ul>
-<p>首先下载最新版的，点击进行下载：</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251758987.png"></p>
-<p>置于E盘，接下来下载一个镜像：Ubuntu为例</p>
-<ol>
-<li>网页搜索Ubuntu，</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759681.png"></p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759549.png"></p>
-<p>这里LTS表示稳定版</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759071.png"></p>
-<ol start="2">
-<li>也可在镜像站内进行：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn,这是清华大学的开源软件镜像站,往下找到需要下载的,选择ubuntu-releases即可./">https://mirrors.tuna.tsinghua.edu.cn,这是清华大学的开源软件镜像站，往下找到需要下载的，选择Ubuntu-releases即可。</a></li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759511.png"></p>
-<p>进入后可根据需要选择版本，最好选择一个长期版的，以22.04为例</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251800604.png"></p>
-<p>进入选择光盘镜像，等待下载</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251856040.png"></p>
-<p>接下来要看一下我们的磁盘，找到磁盘管理（鼠标指向窗口，单击右键，点击磁盘管理）</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251800532.png"></p>
-<p>可以看到我们的磁盘状态，</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801883.png"></p>
-<p>如果存在未分配磁盘区块，那我们可以将Ubuntu装到这里; 如果不存在未分配的区块，就需要我们来开辟一块新的空间，最好的是有两块磁盘。</p>
-<p>等待我们的镜像文件下载完成以后，可以看到文件所在位置：</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801087.png"></p>
-<p> 准备一个大于等于8G的空U盘。</p>
-<p>打开Rufus文件，它会自动检测到U盘，引导类型选择：</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801114.png"></p>
-<p>找到镜像文件所在位置，打开</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802693.png"></p>
-<p>接着是分区类型选择</p>
-<p>这里有：</p>
-<ol>
-<li>GPT（可通过UEFI来引导</li>
-<li>MBR（主要是通过BIOS来引导）</li>
-</ol>
-<p>一般情况下，14年之前的，最好是用MBR（管理的空间比较小），之后的，用GPT（磁盘管理的空间更大了）</p>
-<p>选择好分区类型以后，就可以“开始”了。</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802174.png"></p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802018.png"></p>
-<p> 可进入详细信息查看状态</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802910.png"></p>
-<p>完成以后，可以查看U盘当前状态</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251803845.png"></p>
-<p>刻制好了以后，就什么也不要动了。</p>
-<p>接下来可以重启电脑了</p>
-<p>根据电脑快捷键进入开机启动项</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251803134.png"></p>
-<p>进入启动页面以后可以看到启动项列表</p>
-<p>在此之前，可以按Tab键进入选择，进入setup设置为disabled。不禁用可能出现的情况就是Ubuntu不能启动。</p>
-<p>引导方式为UEFI。F10退出。</p>
-<p>电脑重启，疯狂扣住启动键。</p>
-<p>进入Ubuntu安装选项</p>
-<ol>
-<li>进入以后，第一项为语言设置，根据需求选择语言（推荐选择英文）。</li>
-</ol>
-<p>点击【安装Ubuntu】</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804553.png"></p>
-<ol start="2">
-<li>更新和其他软件</li>
-</ol>
-<p> 选择正常安装或者【最小安装】</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804113.png"></p>
-<p>【继续】</p>
-<ol start="3">
-<li>安装类型</li>
-</ol>
-<p>因为装的是双系统，选择【其他选项】</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804445.png"></p>
-<p>进入分区</p>
-<p>创建分区：</p>
-<p>1）分配一个EFI引导分区，大小一般为500MB，用于EFI系统分区</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804265.png"></p>
-<p>2）boot分区，分配大小为2048MB，挂载点：&#x2F;boot</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805587.png"></p>
-<p>3）创建一个交换分区，用于交换空间（swap），可设置为2048MB</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805367.png"></p>
-<p>4）根分区，可维护性更好，挂载点&#x2F;（放到根分区）</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805530.png"></p>
-<p>接下来找到EFI引导分区的位置，进行选择</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251806211.png"></p>
-<p>现在安装→继续→选择时区(shanghai)→姓名→密码→继续→安装……(在没有网的情况下速度会更快)</p>
-<p>安装完成后，电脑重启。（注意，重启过程中要将U盘取下来）</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #ffa2c4">重装系统</a>
-        </span>
-        
-    </div>
-    <a href="/2022/07/11/win11%EF%BC%89/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/07/11/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%85%A8%E6%96%B0%E7%B3%BB%E7%BB%9F(Win10)/">
-        <h2 class="post-title">重装系统之全新系统(Win10)</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F-Windows/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                重装系统/Windows
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/7/11
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><p>首先重装之前一定要将电脑上的重要资料给备份好，否则数据丢失了就很难再找回来了。建议是使用U盘或者网盘备份。</p>
-<ol>
-<li>准备一个8G以上的空白U盘</li>
-<li>下载 “官方安装工具”</li>
-<li>制作安装U盘</li>
-</ol>
-<h2 id="二、安装系统"><a href="#二、安装系统" class="headerlink" title="二、安装系统"></a>二、安装系统</h2><ol>
-<li>用快捷键启动U盘</li>
-<li>选择安装方式</li>
-<li>分区格式化硬盘</li>
-<li>安装系统文件到电脑</li>
-</ol>
-<h2 id="三、安装完毕后系统配置"><a href="#三、安装完毕后系统配置" class="headerlink" title="三、安装完毕后系统配置"></a>三、安装完毕后系统配置</h2><h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><h2 id="一、微软官方ISO镜像文件直接写入"><a href="#一、微软官方ISO镜像文件直接写入" class="headerlink" title="一、微软官方ISO镜像文件直接写入"></a>一、微软官方ISO镜像文件直接写入</h2><p>好处：纯净、方便、简单<br>缺点：功能较少、较为僵硬</p>
-<p>U盘格式化的方式：FAT32（单个分区最大只支持32G，不能存放单个体积大于4G的文件）、exFAT、NTFS（很多老主板不支持）</p>
-<ol>
-<li>准备一个容量至少为8G的U盘</li>
-<li>往U盘内写入系统安装文件<br>（1）先将U盘插到用来制作启动盘的电脑上<br>（2）到微软官方下载win10安装包<br>1）打开百度（或必应），搜索“微软官网下载win10”</li>
-</ol>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251929073.png"></p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251930310.png"></p>
-<p>进入官网，点击“立即下载工具”</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251931384.png"></p>
-<p>下载完成后，双击点开，稍等程序运作一下，</p>
-<p>许可申明点击接受</p>
-<p>选择为另一台电脑创建安装介质，下一步</p>
-<p>取消“对着一台电脑使用推荐的选项”，下一步</p>
-<p>选项要写入的介质，我们选择写入进U盘内，下一步</p>
-<p>确认一下盘符是否是你要写入安装程序的U盘，下一步</p>
-<p>接下来会自动将你的U盘格式化为FAT32格式，并开始下载安装包，再将安装包写入U盘内，等待启动盘制作工具清理缓存文件</p>
-<h2 id="二、PE便携式操作系统辅助安装写入"><a href="#二、PE便携式操作系统辅助安装写入" class="headerlink" title="二、PE便携式操作系统辅助安装写入"></a>二、PE便携式操作系统辅助安装写入</h2><p>PE功能全且兼容性极广</p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">重装系统</a>
-        </span>
-        
-    </div>
-    <a href="/2022/07/11/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%85%A8%E6%96%B0%E7%B3%BB%E7%BB%9F(Win10)/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/07/08/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F1/">
-        <h2 class="post-title">重装系统之保存文件类</h2>
-    </a>
-    <div class="category-and-date">
-        
-        <span class="category">
-            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                重装系统
-            </a>
-        </span>
-        
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2022/7/8
-        </span>
-        
-        
-    </div>
-    <div class="description">
-        <div class="content" v-pre>
-            
-            <ol>
-<li>win11</li>
-</ol>
-<p>打开设置</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251933570.png"></p>
-<p>找到恢复</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934849.png"></p>
-<p>恢复选项→重置此电脑</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934787.png"></p>
-<ol start="2">
-<li>win10</li>
-</ol>
-<p>打开设置</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934368.png"></p>
-<p>找到更新与安全</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935915.png"></p>
-<p>找到恢复</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935418.png"></p>
-<p>开始重置此电脑</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935355.png"></p>
-<p>选择是否保留系统文件</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935719.png"></p>
-<p>选择保留</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251936043.png"></p>
-<p>选择删除</p>
-<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251936869.png"></p>
-
-            
-        </div>
-    </div>
-    <div class="post-tags">
-        
-        <span class="icon">
-            <i class="fa-solid fa-tags fa-fw"></i>
-        </span>
-        
-        
-        
-        <span class="tag">
-            
-            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #ffa2c4">重装系统</a>
-        </span>
-        
-    </div>
-    <a href="/2022/07/08/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F1/" class="go-post">阅读全文</a>
-</div>
-
-<div class="post">
-    <a href="/2022/07/05/%E9%97%AE%E9%A2%982/">
-        <h2 class="post-title">How to down wechat in Ubuntu</h2>
+    <a href="/2023/01/05/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4VScode/">
+        <h2 class="post-title">如何彻底删除VScode</h2>
     </a>
     <div class="category-and-date">
         
@@ -749,7 +222,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2022/7/5
+            2023/1/5
         </span>
         
         
@@ -757,10 +230,16 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p><a target="_blank" rel="noopener" href="https://github.com/zq1997/deepin-wine">https://github.com/zq1997/deepin-wine</a></p>
-<p>首次使用时，需要运行如下代码：</p>
-<p><code>wget -0-  https://deepin-wine.i-m.dev/setup.sh | sh</code></p>
-<p>自此以后，你可以像对待普通的软件包一样，使用<code>apt-get</code>系列命令进行各种应用的安装、更新、卸载和清理了</p>
+            <p>原文链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c822060ef8f2">https://www.jianshu.com/p/c822060ef8f2</a></p>
+<h1 id="第一步直接卸载Vs-Code"><a href="#第一步直接卸载Vs-Code" class="headerlink" title="第一步直接卸载Vs Code"></a>第一步直接卸载Vs Code</h1><p>卸载</p>
+<h1 id="第二步键盘同时按下-win-e，打开文件夹"><a href="#第二步键盘同时按下-win-e，打开文件夹" class="headerlink" title="第二步键盘同时按下 win + e，打开文件夹"></a>第二步键盘同时按下 win + e，打开文件夹</h1><p><em><strong>请确保在文件夹窗口中已进行如下操作：</strong></em></p>
+<p>显示隐藏文件</p>
+<h1 id="第三步：删除用户数据"><a href="#第三步：删除用户数据" class="headerlink" title="第三步：删除用户数据"></a>第三步：删除用户数据</h1><p>键盘同时按下 win + R 打开运行窗口，在输入框中输入%appdata%</p>
+<p>找到 Code 文件夹，删掉它</p>
+<p>在打开的文件夹下，找到 Code 文件夹，删掉它</p>
+<h1 id="第四步：删除扩展等数据"><a href="#第四步：删除扩展等数据" class="headerlink" title="第四步：删除扩展等数据"></a>第四步：删除扩展等数据</h1><p>键盘同时按下 win + R 打开运行窗口，在输入框中输入%userprofile%</p>
+<p>找到 .vscode 文件夹，删掉它</p>
+<p>在打开的文件夹下，找到 <strong>.vscode</strong> 文件夹，删掉它</p>
 
             
         </div>
@@ -779,12 +258,12 @@
         </span>
         
     </div>
-    <a href="/2022/07/05/%E9%97%AE%E9%A2%982/" class="go-post">阅读全文</a>
+    <a href="/2023/01/05/%E5%BD%BB%E5%BA%95%E5%88%A0%E9%99%A4VScode/" class="go-post">阅读全文</a>
 </div>
 
 <div class="post">
-    <a href="/2022/07/05/%E9%97%AE%E9%A2%981/">
-        <h2 class="post-title">How to chear the edition of Ubuntu</h2>
+    <a href="/2022/10/14/Ubuntu%E5%8D%87%E7%BA%A7make%E6%96%B9%E6%B3%95/">
+        <h2 class="post-title">Ubuntu升级make方法</h2>
     </a>
     <div class="category-and-date">
         
@@ -801,7 +280,7 @@
             <span class="icon">
                 <i class="fa-solid fa-calendar fa-fw"></i>
             </span>
-            2022/7/5
+            2022/10/14
         </span>
         
         
@@ -809,11 +288,7 @@
     <div class="description">
         <div class="content" v-pre>
             
-            <p><code>~s uname -a </code>     可以看到操作系统的发行版号和操作系统版本</p>
-<p><code>~s uname -v </code>       可以查看版本号</p>
-<p><code>~s lsb_release-a </code>       查看发行版信息，并且方法可以适用于所有Linux发行版本</p>
-<p><code>~s cat /etc/issue</code>      可以查看到当前是Linux什么版本系统</p>
-<p><code>~s car /proc/version </code>     可以查看内核的版本号</p>
+            <p>参考文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/jdsnpgxj/article/details/106278542">Ubuntu12.04升级make的方法_Justice_Gao的博客-CSDN博客</a></p>
 
             
         </div>
@@ -828,11 +303,229 @@
         
         <span class="tag">
             
-            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #00bcd4">日常</a>
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #03a9f4">日常</a>
         </span>
         
     </div>
-    <a href="/2022/07/05/%E9%97%AE%E9%A2%981/" class="go-post">阅读全文</a>
+    <a href="/2022/10/14/Ubuntu%E5%8D%87%E7%BA%A7make%E6%96%B9%E6%B3%95/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/13/yum%E6%8A%A5%E9%94%99/">
+        <h2 class="post-title">使用yum报错：There are no enabled repos.Run &#34;yum repolist all&#34; to see the repos you have</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/10/13
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>参考文章：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_58397358/article/details/124108704">yum报错解决</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #ff7d73">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/13/yum%E6%8A%A5%E9%94%99/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/13/make%E5%91%BD%E4%BB%A4/">
+        <h2 class="post-title">make命令出现：“make:***No targets specified and no makefile found.Stop.&#34;</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/10/13
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>参考文章：<br><a target="_blank" rel="noopener" href="https://blog.sdn.net/owenzhang24/article/details/122234100">解决make命令导致的问题</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #ffa2c4">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/13/make%E5%91%BD%E4%BB%A4/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/10/13/%E9%95%BF%E6%97%B6%E9%97%B4%E4%B8%8D%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%91%E7%8E%B0%E4%B9%8B%E5%89%8D%E4%B8%8B%E8%BD%BD%E7%9A%84%E7%B3%BB%E7%BB%9F%E4%B8%8D%E8%A7%81%E4%BA%86/">
+        <h2 class="post-title">长时间不用虚拟机发现之前下载的系统不见了</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/10/13
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>参照这位博主的方法解决：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/annie810/article/details/84255304">VMware安装好的系统突然不见了的解决方法_chensn02的博客-CSDN博客_vmware安装</a></li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/20240125162812.png"></p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/20240125162636.png"></p>
+<p>这出来了</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/20240125162914.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #00a596">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/10/13/%E9%95%BF%E6%97%B6%E9%97%B4%E4%B8%8D%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%8F%91%E7%8E%B0%E4%B9%8B%E5%89%8D%E4%B8%8B%E8%BD%BD%E7%9A%84%E7%B3%BB%E7%BB%9F%E4%B8%8D%E8%A7%81%E4%BA%86/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/30/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btensorflow%E7%89%88%E6%9C%AC/">
+        <h2 class="post-title">如何查看tensorflow版本</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/30
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <ul>
+<li>如果是<code>pip</code>下载的，就可以使用以下方法：</li>
+</ul>
+<pre><code class="python">python   #进入python交互式环境
+import tensorflow as tf
+tf._  version  _
+</code></pre>
+<ul>
+<li>其他方式下可以：</li>
+</ul>
+<pre><code class="python">python  #进入python交互式环境
+import tensorflow as tf
+tf.__version__
+这样就可以了
+</code></pre>
+<p>参考文档:<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/hello_program_world/article/details/111246738">tensorflow各个版本的CUDA以及Cudnn版本对应关系</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #ff7d73">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/30/%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8Btensorflow%E7%89%88%E6%9C%AC/" class="go-post">阅读全文</a>
 </div>
 
 
@@ -849,6 +542,11 @@
     <a class="page-num" href="/page/5">5</a>
     
     
+    <a class="page-num" href="/page/6">6</a>
+    
+    
+    <span class="page-omit">...</span>
+    <a class="page-num" href="/page/7">7</a>
     
     
     <a class="page-num" href="/page/5/">
@@ -877,7 +575,7 @@
               
                 <div class="card-item">
                   <p>Articles</p>
-                  <p>25</p>
+                  <p>39</p>
                 </div>
                 </a>
               

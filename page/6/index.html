@@ -1,0 +1,1066 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>SecflA</title>
+    <meta name="author" content="焰霓" />
+    <meta name="description" content="踏遍天下，游历山海" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <link rel="icon" href="/images/at.jpg" />
+    <link rel="preconnect" href="https://cdn.staticfile.org" />
+<script src="https://cdn.staticfile.org/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.loli.net" />
+<link rel="preconnect" href="https://gstatic.loli.net" crossorigin />
+<link rel="stylesheet" href="https://fonts.loli.net/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap" />
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://cdn.staticfile.org/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdn.staticfile.org/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.staticfile.org/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script src="/js/lib/home.js"></script>
+
+<link rel="stylesheet" href="/css/main.css" />
+
+    <canvas id="fireworks" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 32767"></canvas>
+    <script src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script>
+    <script src="/js/fireworks.js"></script>
+    <canvas id="background" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: -1"></canvas>
+    <script src="/js/background.js"></script>
+    <div id="cursor"></div>
+    <link rel="stylesheet" href="/css/cursor.min.css">
+    <script src="/js/cursor.min.js"></script>
+    <link rel="stylesheet" href="/css/custom.css">
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/giphy.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>SECFLA</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;首页</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-id-card fa-fw"></i>
+            <span>&ensp;关于</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;归档</span>
+        </a>
+        
+        <a href="/categories">
+            <i class="fa-solid fa-bookmark fa-fw"></i>
+            <span>&ensp;分类</span>
+        </a>
+        
+        <a href="/tags">
+            <i class="fa-solid fa-tags fa-fw"></i>
+            <span>&ensp;标签</span>
+        </a>
+        
+        <a href="/learning">
+            <i class="fa-solid fa-graduation-cap fa-fw"></i>
+            <span>&ensp;学习空间</span>
+        </a>
+        
+        <a href="/friends">
+            <i class="fa-solid fa-heart fa-fw"></i>
+            <span>&ensp;友情链接</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;SECFLA</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">首页</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-id-card fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">关于</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">归档</div>
+                    </div>
+                </a>
+                
+                <a href="/categories">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-bookmark fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">分类</div>
+                    </div>
+                </a>
+                
+                <a href="/tags">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-tags fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">标签</div>
+                    </div>
+                </a>
+                
+                <a href="/learning">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-graduation-cap fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">学习空间</div>
+                    </div>
+                </a>
+                
+                <a href="/friends">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-heart fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">友情链接</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            <div id="home-head">
+    <div id="home-background" ref="homeBackground" data-images="/images/back.jpg"></div>
+    <div id="home-info" @click="homeClick">
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="loop"></span>
+        <span class="info">
+            <div class="wrap">
+                <h1>SecflA</h1>
+                <h3>焰</h3>
+                <h5>踏遍天下，游历山海</h5>
+            </div>
+        </span>
+    </div>
+</div>
+<div id="home-posts-wrap" true ref="homePostsWrap">
+    <div id="home-posts">
+        
+
+<div class="post">
+    <a href="/2022/07/24/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/">
+        <h2 class="post-title">如何在Ubuntu中添加中文输入法</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/24
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>参考文章：<br><a target="_blank" rel="noopener" href="http://t.zoukankan.com/jdbc-mydql-p-7638567.html">如何在Ubuntu中添加中文输入法 - 走看看</a></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #ff7d73">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/24/%E5%A6%82%E4%BD%95%E5%9C%A8Ubuntu%E4%B8%AD%E6%B7%BB%E5%8A%A0%E4%B8%AD%E6%96%87%E8%BE%93%E5%85%A5%E6%B3%95/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/23/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%88%A0%E9%99%A4Ubuntu/">
+        <h2 class="post-title">双系统删除Ubuntu</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E6%97%A5%E5%B8%B8/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                日常
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/23
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="一、删除Ubuntu系统的分区"><a href="#一、删除Ubuntu系统的分区" class="headerlink" title="一、删除Ubuntu系统的分区"></a>一、删除Ubuntu系统的分区</h2><p>在win10界面打开cmd，找到Ubuntu系统分区并删除</p>
+<ol>
+<li>【win】+【R】，输入cmd；</li>
+</ol>
+<p><img src="https://flowus.cn/preview/217db55d-d4e6-4c9e-bf9b-49b670fa7306" alt="image.png"></p>
+<ol start="2">
+<li>进入命令行，输入diskpart,进入diskpart组件；</li>
+</ol>
+<p>部分组件命令如下：</p>
+<p><img src="https://flowus.cn/preview/78b91604-c02c-4f8b-96d0-7e5b5802bd49" alt="image.png"></p>
+<p>输入diskpart</p>
+<p><img src="https://flowus.cn/preview/db2bcd64-eb4c-43e7-933b-16b0061fcb54" alt="image.png"></p>
+<ol start="3">
+<li>list disk  查看系统所有磁盘</li>
+</ol>
+<p><img src="https://flowus.cn/preview/fe345ae0-6f74-47ce-b13c-26d55f6f7afb" alt="image.png"></p>
+<ol start="4">
+<li>select disk 0  打开Ubuntu系统坐在的磁盘，如果电脑仅有一个磁盘，那就是这个磁盘了</li>
+</ol>
+<p><img src="https://flowus.cn/preview/dfcc6901-a827-4bfd-91ab-d7fbbd1c0519" alt="image.png"></p>
+<ol start="5">
+<li>list partition  查看磁盘分区</li>
+</ol>
+<p><img src="https://flowus.cn/preview/801f2bd0-8156-455d-8f5b-803ba9eb76ee" alt="image.png"></p>
+<ol start="6">
+<li>select partition #  #为Ubuntu所在的分区</li>
+</ol>
+<p>→delete partition override （删除分区，这一步需要谨慎操作，不要选错分区）</p>
+<p>→重复select partition #和delete partition override直到删除所有Ubuntu分区</p>
+<p>（删除Ubuntu‘系统’分区也同理）</p>
+<p><img src="https://flowus.cn/preview/738aeba4-48c2-4d2b-b72c-354fa869b1f4" alt="image.png"></p>
+<h2 id="二、删除Ubuntu系统的启动项"><a href="#二、删除Ubuntu系统的启动项" class="headerlink" title="二、删除Ubuntu系统的启动项"></a>二、删除Ubuntu系统的启动项</h2><p>以上删除了Ubuntu系统的分区，接下来删除其启动项。</p>
+<p>启动项不删除可能会造成开机仍然有Ubuntu的引导但却进入不了Ubuntu系统的麻烦</p>
+<ol>
+<li>【win】+【R】，输入cmd</li>
+</ol>
+<p><img src="https://flowus.cn/preview/0c01b5e9-6fbd-46ab-bdec-87400aca73eb" alt="image.png"></p>
+<ol start="2">
+<li>diskpart</li>
+</ol>
+<p><img src="https://flowus.cn/preview/fa146ba0-9885-4c46-bee1-ec419ec38675" alt="image.png"></p>
+<ol start="3">
+<li>list disk</li>
+</ol>
+<p><img src="https://flowus.cn/preview/ddfae0c6-b94f-4eae-95d3-45262173fd32" alt="image.png"></p>
+<ol start="4">
+<li>select disk $  $是Windows安装所在的磁盘</li>
+</ol>
+<p>→list partition </p>
+<p><img src="https://flowus.cn/preview/cf5c3859-5c20-4269-8cbe-6b2d532546d1" alt="image.png"></p>
+<ol start="5">
+<li>select partition 1（1为win下系统类型分区所对应的分区ID）</li>
+</ol>
+<p>→assign letter&#x3D;P.（不要关闭界面）选择其系统分区并将其分配给一个磁盘P（任意一个不与现有磁盘冲突的就行），</p>
+<p><img src="https://flowus.cn/preview/33a4b170-8813-4ace-b359-ecb6910c6c81" alt="image.png"></p>
+<p>查看此电脑，磁盘多出了一个刚刚分配的P磁盘</p>
+<p><img src="https://flowus.cn/preview/dde6f333-47d9-4fb6-8cfe-aff8a0fb90a9" alt="image.png"></p>
+<ol start="6">
+<li>借助记事本进行访问磁盘P，以管理员权限打开记事本</li>
+</ol>
+<p><img src="https://flowus.cn/preview/0ba52844-a800-4514-a6a7-1340ae6077e0" alt="image.png"></p>
+<ol start="7">
+<li>点击左上角的文件，选择电脑磁盘P</li>
+</ol>
+<p><img src="https://flowus.cn/preview/120b79de-f65e-4f57-a898-791e67a58641" alt="image.png"></p>
+<ol start="8">
+<li>找到Ubuntu文件夹</li>
+</ol>
+<p><img src="https://flowus.cn/preview/0d78d1b9-3510-443a-a93c-01c15107d2c7" alt="image.png"></p>
+<p>鼠标右键，选择</p>
+<p><img src="https://flowus.cn/preview/a4dba277-26ec-4f4b-88c2-32d62ec4019a" alt="image.png"></p>
+<p><img src="https://flowus.cn/preview/f03dbbb0-f5b8-4c2e-af63-ab04c4c89a4a" alt="image.png"></p>
+<ol start="9">
+<li>进入前面的操作界面，输入remove letter&#x3D;P；删除P盘即可</li>
+</ol>
+<p><img src="https://flowus.cn/preview/60748ffc-97bd-491d-b138-950b2d33d182" alt="image.png"></p>
+<ol start="10">
+<li>重启电脑</li>
+</ol>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E6%97%A5%E5%B8%B8/" style="color: #ff7d73">日常</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/23/%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%88%A0%E9%99%A4Ubuntu/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/23/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+        <h2 class="post-title">虚拟机——VMware下安装Ubuntu</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E8%99%9A%E6%8B%9F%E6%9C%BA/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                虚拟机
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/23
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h1 id="ubuntu-下载地址："><a href="#ubuntu-下载地址：" class="headerlink" title="ubuntu 下载地址："></a>ubuntu 下载地址：</h1><blockquote>
+<ol>
+<li>官方下载地址：<a target="_blank" rel="noopener" href="https://www.ubuntu.com/download">https://www.ubuntu.com/download</a></li>
+</ol>
+</blockquote>
+<blockquote>
+<ol start="2">
+<li>阿里云开源镜像站：<br><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/">http://mirrors.aliyun.com/ubuntu-releases/</a></li>
+</ol>
+</blockquote>
+<h1 id="桌面版本和服务器版本之间的区别："><a href="#桌面版本和服务器版本之间的区别：" class="headerlink" title="桌面版本和服务器版本之间的区别："></a>桌面版本和服务器版本之间的区别：</h1><p>桌面版预装了 GUI 图像操作界面，而服务器版没有<br>桌面版已经安装了许多服务器版没有的软件，如办公软件、媒体播放软件、浏览器等等<br>桌面版缺少 Apache、MySQL 和 PHP，而这些在服务器版中是标准配置<br>桌面版更适合个人电脑安装使用，而服务器版适用于部署web服务器使用，个人练习的话，推荐桌面版。当然通过安装和卸载软件包，你也可以将桌面版定制为服务器版，反之亦然。<br>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_28340727/article/details/121384457">https://blog.csdn.net/baidu_28340727&#x2F;article&#x2F;details&#x2F;121384457</a></p>
+<h1 id="安装VMware"><a href="#安装VMware" class="headerlink" title="安装VMware"></a>安装VMware</h1><p>进入官网下载：<a target="_blank" rel="noopener" href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html</a></p>
+<blockquote>
+<p>首先在这里说明一下：win11系统在下载VMware16及以下可能会存在兼容性问题，导致出现电脑蓝屏的情况</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/20240125173501.png"></p>
+<blockquote>
+<p>通过搜索发现最好是16版本以上的安装在win11上没有错误</p>
+</blockquote>
+<ol>
+<li>下载完成VMware16.2.4最新版本安装包以后，鼠标右键，【以管理员身份运行】：</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737490.png"></p>
+<ol start="2">
+<li>点击【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737751.png"></p>
+<ol start="3">
+<li>选择【我接受许可协议中的条款】→【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251737218.png"></p>
+<ol start="4">
+<li>点击【更改…】修改软件安装目录（如果你觉得你的C盘足够大，也可以默认，但还是建议安装在除C盘之外的其他盘）</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251738462.png"></p>
+<p>下一步】</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251738898.png"></p>
+<ol start="5">
+<li>取消勾选【启动时检查产品更新】和【假如VMware客户体验提升计划 】→【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251904472.png"></p>
+<ol start="6">
+<li>点击【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251904107.png"></p>
+<ol start="7">
+<li>点击【安装】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740115.png"></p>
+<ol start="8">
+<li>点击【许可证】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740800.png"></p>
+<ol start="9">
+<li>在百度上找到许可证，复制粘贴，点击【输入】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251740962.png"></p>
+<ol start="10">
+<li>点击【完成】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251741171.png"></p>
+<h1 id="在VMware下安装Ubuntu"><a href="#在VMware下安装Ubuntu" class="headerlink" title="在VMware下安装Ubuntu"></a>在VMware下安装Ubuntu</h1><p>我要装的Ubuntu的版本为18.04版本，大家也可以根据自己的喜好选择安装最新版本或其他版本。</p>
+<p>由于官网是在是太慢了，我们可以进入阿里云开源镜像站：<br><a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu-releases/">http://mirrors.aliyun.com/ubuntu-releases/</a></p>
+<p>或者清华开源镜像网站：</p>
+<p><a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn</a></p>
+<ol>
+<li>找到想要的版本，进行下载：</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251743753.png"></p>
+<ol start="2">
+<li>选择桌面镜像，点击进行下载</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744935.png"></p>
+<ol start="3">
+<li>下载完成后，我们就可以双击打开刚刚安装完成的VMware</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744564.png"></p>
+<ol start="4">
+<li>点击【创建新的虚拟机】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251744870.png"></p>
+<ol start="5">
+<li>对配置类型进行选择，在这里我选的是【典型】→【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251745297.png"></p>
+<ol start="6">
+<li>选择【稍后安装操作系统】→【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251745555.png"></p>
+<ol start="7">
+<li>选择【Linux】→【Ubuntu64位】→【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251746534.png"></p>
+<ol start="8">
+<li>默认虚拟机名称，选择【浏览】更改系统的安装位置，还是建议安装在C盘以外的其他盘，选择【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251746442.png"></p>
+<ol start="9">
+<li>选择【下一步】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747596.png"></p>
+<ol start="10">
+<li>选择【自定义文件】</li>
+<li>选择【内存】→【此虚拟机的内存】，设置为2048MB</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747946.png"></p>
+<ol start="12">
+<li>选择【新CD&#x2F;DVD（SATA）】→【使用ISO镜像文件】→【浏览】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747712.png"></p>
+<ol start="13">
+<li>找到刚才下载好的Ubuntu镜像文件，点击镜像文件，选择【打开】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251747997.png"></p>
+<ol start="14">
+<li>选择【网络适配器】→【仅主机模式】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748203.png"></p>
+<ol start="15">
+<li>选择【USB控制器】→【移除】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748145.png"></p>
+<ol start="16">
+<li>选择【打印机】→【移除】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251748898.png"></p>
+<ol start="17">
+<li>选择【关闭】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749765.png"></p>
+<ol start="18">
+<li>选择【完成】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749133.png"></p>
+<ol start="19">
+<li>此时可以看到我的计算机里面存在【Ubuntu64位】，选择【Ubuntu64位】→【开启此虚拟机】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749859.png"></p>
+<ol start="20">
+<li>语言设置因人而异，你可以选择【中文（简体）】，在这里我选择的是【English】→【Install Ubuntu】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251749567.png"></p>
+<ol start="21">
+<li>选择【Continue】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750147.png"></p>
+<ol start="22">
+<li>选择【Normal installation】，因人而异，你也可以选择最小安装或其他</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750593.png"></p>
+<ol start="23">
+<li>选择【Install Now】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750342.png"></p>
+<ol start="24">
+<li>这时候会出现一个弹窗，选择【Continue】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251750354.png"></p>
+<ol start="25">
+<li>点击地图上上海的位置，选择【Continue】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751674.png"></p>
+<ol start="26">
+<li>创建用户账号密码，选择【Continue】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751855.png"></p>
+<ol start="27">
+<li>系统 正在安装中，可以耐心等待一会儿</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251751090.png"></p>
+<ol start="28">
+<li>安装完成，点击【Restart Now】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752708.png"></p>
+<ol start="29">
+<li>重启后不需要进行任何操作，重启完成。点击用户名</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752930.png"></p>
+<ol start="30">
+<li>输入密码，选择【Sign in】</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752185.png"></p>
+<ol start="31">
+<li>进入Ubuntu界面，Ubuntu系统安装完成。</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251752618.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E8%99%9A%E6%8B%9F%E6%9C%BA/" style="color: #ffa2c4">虚拟机</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/23/%E7%8E%A9%E8%BD%AC%E8%99%9A%E6%8B%9F%E6%9C%BA/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/11/win11%EF%BC%89/">
+        <h2 class="post-title">Ubuntu之双系统（win10/win11）</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F-Ubuntu/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                重装系统/Ubuntu
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/11
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <p>首先可以下载一个rufus：创建启动盘</p>
+<p>Rufus是一个可以帮助格式化和创建可引导USB闪存盘的工具，</p>
+<p>比如 USB 随身碟，记忆棒等等。</p>
+<p>在如下场景中会非常有用：</p>
+<ul>
+<li>你需要把一些可引导的ISO格式的镜像（Windows，Linux，UEFI等）创建成USB安装盘的时候</li>
+<li>你需要使用一个还没有安装操作系统的设备的时候</li>
+<li>你需要从DOS系统刷写BIOS或者其他固件的时候</li>
+<li>你需要运行一个非常底层的工具的时候</li>
+</ul>
+<p>首先下载最新版的，点击进行下载：</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251758987.png"></p>
+<p>置于E盘，接下来下载一个镜像：Ubuntu为例</p>
+<ol>
+<li>网页搜索Ubuntu，</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759681.png"></p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759549.png"></p>
+<p>这里LTS表示稳定版</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759071.png"></p>
+<ol start="2">
+<li>也可在镜像站内进行：<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn,这是清华大学的开源软件镜像站,往下找到需要下载的,选择ubuntu-releases即可./">https://mirrors.tuna.tsinghua.edu.cn,这是清华大学的开源软件镜像站，往下找到需要下载的，选择Ubuntu-releases即可。</a></li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251759511.png"></p>
+<p>进入后可根据需要选择版本，最好选择一个长期版的，以22.04为例</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251800604.png"></p>
+<p>进入选择光盘镜像，等待下载</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251856040.png"></p>
+<p>接下来要看一下我们的磁盘，找到磁盘管理（鼠标指向窗口，单击右键，点击磁盘管理）</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251800532.png"></p>
+<p>可以看到我们的磁盘状态，</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801883.png"></p>
+<p>如果存在未分配磁盘区块，那我们可以将Ubuntu装到这里; 如果不存在未分配的区块，就需要我们来开辟一块新的空间，最好的是有两块磁盘。</p>
+<p>等待我们的镜像文件下载完成以后，可以看到文件所在位置：</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801087.png"></p>
+<p> 准备一个大于等于8G的空U盘。</p>
+<p>打开Rufus文件，它会自动检测到U盘，引导类型选择：</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251801114.png"></p>
+<p>找到镜像文件所在位置，打开</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802693.png"></p>
+<p>接着是分区类型选择</p>
+<p>这里有：</p>
+<ol>
+<li>GPT（可通过UEFI来引导</li>
+<li>MBR（主要是通过BIOS来引导）</li>
+</ol>
+<p>一般情况下，14年之前的，最好是用MBR（管理的空间比较小），之后的，用GPT（磁盘管理的空间更大了）</p>
+<p>选择好分区类型以后，就可以“开始”了。</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802174.png"></p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802018.png"></p>
+<p> 可进入详细信息查看状态</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251802910.png"></p>
+<p>完成以后，可以查看U盘当前状态</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251803845.png"></p>
+<p>刻制好了以后，就什么也不要动了。</p>
+<p>接下来可以重启电脑了</p>
+<p>根据电脑快捷键进入开机启动项</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251803134.png"></p>
+<p>进入启动页面以后可以看到启动项列表</p>
+<p>在此之前，可以按Tab键进入选择，进入setup设置为disabled。不禁用可能出现的情况就是Ubuntu不能启动。</p>
+<p>引导方式为UEFI。F10退出。</p>
+<p>电脑重启，疯狂扣住启动键。</p>
+<p>进入Ubuntu安装选项</p>
+<ol>
+<li>进入以后，第一项为语言设置，根据需求选择语言（推荐选择英文）。</li>
+</ol>
+<p>点击【安装Ubuntu】</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804553.png"></p>
+<ol start="2">
+<li>更新和其他软件</li>
+</ol>
+<p> 选择正常安装或者【最小安装】</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804113.png"></p>
+<p>【继续】</p>
+<ol start="3">
+<li>安装类型</li>
+</ol>
+<p>因为装的是双系统，选择【其他选项】</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804445.png"></p>
+<p>进入分区</p>
+<p>创建分区：</p>
+<p>1）分配一个EFI引导分区，大小一般为500MB，用于EFI系统分区</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251804265.png"></p>
+<p>2）boot分区，分配大小为2048MB，挂载点：&#x2F;boot</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805587.png"></p>
+<p>3）创建一个交换分区，用于交换空间（swap），可设置为2048MB</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805367.png"></p>
+<p>4）根分区，可维护性更好，挂载点&#x2F;（放到根分区）</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251805530.png"></p>
+<p>接下来找到EFI引导分区的位置，进行选择</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251806211.png"></p>
+<p>现在安装→继续→选择时区(shanghai)→姓名→密码→继续→安装……(在没有网的情况下速度会更快)</p>
+<p>安装完成后，电脑重启。（注意，重启过程中要将U盘取下来）</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">重装系统</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/11/win11%EF%BC%89/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/11/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%85%A8%E6%96%B0%E7%B3%BB%E7%BB%9F(Win10)/">
+        <h2 class="post-title">重装系统之全新系统(Win10)</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F-Windows/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                重装系统/Windows
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/11
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <h2 id="一、准备"><a href="#一、准备" class="headerlink" title="一、准备"></a>一、准备</h2><p>首先重装之前一定要将电脑上的重要资料给备份好，否则数据丢失了就很难再找回来了。建议是使用U盘或者网盘备份。</p>
+<ol>
+<li>准备一个8G以上的空白U盘</li>
+<li>下载 “官方安装工具”</li>
+<li>制作安装U盘</li>
+</ol>
+<h2 id="二、安装系统"><a href="#二、安装系统" class="headerlink" title="二、安装系统"></a>二、安装系统</h2><ol>
+<li>用快捷键启动U盘</li>
+<li>选择安装方式</li>
+<li>分区格式化硬盘</li>
+<li>安装系统文件到电脑</li>
+</ol>
+<h2 id="三、安装完毕后系统配置"><a href="#三、安装完毕后系统配置" class="headerlink" title="三、安装完毕后系统配置"></a>三、安装完毕后系统配置</h2><h2 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h2><h2 id="一、微软官方ISO镜像文件直接写入"><a href="#一、微软官方ISO镜像文件直接写入" class="headerlink" title="一、微软官方ISO镜像文件直接写入"></a>一、微软官方ISO镜像文件直接写入</h2><p>好处：纯净、方便、简单<br>缺点：功能较少、较为僵硬</p>
+<p>U盘格式化的方式：FAT32（单个分区最大只支持32G，不能存放单个体积大于4G的文件）、exFAT、NTFS（很多老主板不支持）</p>
+<ol>
+<li>准备一个容量至少为8G的U盘</li>
+<li>往U盘内写入系统安装文件<br>（1）先将U盘插到用来制作启动盘的电脑上<br>（2）到微软官方下载win10安装包<br>1）打开百度（或必应），搜索“微软官网下载win10”</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251929073.png"></p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251930310.png"></p>
+<p>进入官网，点击“立即下载工具”</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251931384.png"></p>
+<p>下载完成后，双击点开，稍等程序运作一下，</p>
+<p>许可申明点击接受</p>
+<p>选择为另一台电脑创建安装介质，下一步</p>
+<p>取消“对着一台电脑使用推荐的选项”，下一步</p>
+<p>选项要写入的介质，我们选择写入进U盘内，下一步</p>
+<p>确认一下盘符是否是你要写入安装程序的U盘，下一步</p>
+<p>接下来会自动将你的U盘格式化为FAT32格式，并开始下载安装包，再将安装包写入U盘内，等待启动盘制作工具清理缓存文件</p>
+<h2 id="二、PE便携式操作系统辅助安装写入"><a href="#二、PE便携式操作系统辅助安装写入" class="headerlink" title="二、PE便携式操作系统辅助安装写入"></a>二、PE便携式操作系统辅助安装写入</h2><p>PE功能全且兼容性极广</p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #00bcd4">重装系统</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/11/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F%E4%B9%8B%E5%85%A8%E6%96%B0%E7%B3%BB%E7%BB%9F(Win10)/" class="go-post">阅读全文</a>
+</div>
+
+<div class="post">
+    <a href="/2022/07/08/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F1/">
+        <h2 class="post-title">重装系统之保存文件类</h2>
+    </a>
+    <div class="category-and-date">
+        
+        <span class="category">
+            <a href="/categories/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                重装系统
+            </a>
+        </span>
+        
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2022/7/8
+        </span>
+        
+        
+    </div>
+    <div class="description">
+        <div class="content" v-pre>
+            
+            <ol>
+<li>win11</li>
+</ol>
+<p>打开设置</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251933570.png"></p>
+<p>找到恢复</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934849.png"></p>
+<p>恢复选项→重置此电脑</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934787.png"></p>
+<ol start="2">
+<li>win10</li>
+</ol>
+<p>打开设置</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251934368.png"></p>
+<p>找到更新与安全</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935915.png"></p>
+<p>找到恢复</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935418.png"></p>
+<p>开始重置此电脑</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935355.png"></p>
+<p>选择是否保留系统文件</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251935719.png"></p>
+<p>选择保留</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251936043.png"></p>
+<p>选择删除</p>
+<p><img src="https://raw.githubusercontent.com/Adaelf/BlogImg/main/202401251936869.png"></p>
+
+            
+        </div>
+    </div>
+    <div class="post-tags">
+        
+        <span class="icon">
+            <i class="fa-solid fa-tags fa-fw"></i>
+        </span>
+        
+        
+        
+        <span class="tag">
+            
+            <a href="/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/" style="color: #03a9f4">重装系统</a>
+        </span>
+        
+    </div>
+    <a href="/2022/07/08/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F1/" class="go-post">阅读全文</a>
+</div>
+
+
+        <div class="page-current">
+    
+    <a class="page-num" href="/page/5/">
+        <i class="fa-solid fa-caret-left fa-fw"></i>
+    </a>
+    <a class="page-num" href="/">1</a>
+    <span class="page-omit">...</span>
+    
+    <span class="current">6</span>
+    
+    <a class="page-num" href="/page/7">7</a>
+    
+    
+    
+    
+    <a class="page-num" href="/page/7/">
+        <i class="fa-solid fa-caret-right fa-fw"></i>
+    </a>
+    
+</div>
+
+    </div>
+    
+    <div id="home-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/at.jpg" alt="avatar" />
+        </div>
+        <div class="name">焰霓</div>
+        <div class="description">
+            <p>我还有好多东西在兜里…</p>
+
+        </div>
+
+        
+            <a href="/archives">
+            <div class="card-container">
+              
+                <div class="card-item">
+                  <p>Articles</p>
+                  <p>39</p>
+                </div>
+                </a>
+              
+              
+                <a href="/tags">
+                <div class="card-item">
+                  <p>Tags</p>
+                  <p>5</p>
+                </div>
+                </a>
+              
+              
+                <a href="/categories">
+                <div class="card-item">
+                  <p>Categories</p>
+                  <p>8</p>
+                </div>
+                </a>
+              
+            </div>
+                    
+
+          
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/">
+                    <i
+                        class="fa-solid fa-house fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://space.bilibili.com">
+                    <i
+                        class="fa-brands fa-bilibili fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a target="_blank" rel="noopener" href="https://github.com">
+                    <i
+                        class="fa-brands fa-github fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+            <span class="icon-link">
+                <a href="mailto:email@qq.com">
+                    <i
+                        class="fa-solid fa-envelope fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+        <div class="friend-links">
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://Adaelf.github.io,">Adaelf</a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://github.com/Adaelf,">github</a>
+            </div>
+            
+            <div class="friend-link">
+                <a target="_blank" rel="noopener" href="https://www.secfla.cn">Secfla</a>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
+
+    </div>
+    
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy;
+            2022 - 2024 SecflA
+            <span id="footer-icon">
+                <i class="fa-solid fa-font-awesome fa-fw"></i>
+            </span>
+            &commat;焰霓
+        </div>
+        <div>
+            Based on the <a target="_blank" rel="noopener" href="https://hexo.io">Hexo Engine</a> &amp;
+            <a target="_blank" rel="noopener" href="https://github.com/theme-particlex/hexo-theme-particlex">ParticleX Theme</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+</body>
+</html>
